@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {View, FlatList, ActivityIndicator} from 'react-native';
+import {SafeAreaView, View, FlatList, Text} from 'react-native';
+import Spinner from 'react-native-spinkit';
+import Search from '../../components/search';
+import styles from './styles';
+
 import Card from '../../components/card';
 
-export default function All() {
+export default function All(props) {
   const [response, setResponse] = useState();
+  const [search, setSearch] = useState('Search');
   axios({
     method: 'GET',
     url: 'https://restcountries-v1.p.rapidapi.com/all',
@@ -15,13 +20,27 @@ export default function All() {
     },
   })
     .then(data => {
-      setResponse(data);
+      setTimeout(function() {
+        setResponse(data);
+      }, 9000);
     })
     .catch(error => {
       console.log(error);
     });
+  console.log(response, 'don');
   return (
-    <View>
+    <SafeAreaView>
+      <View style={styles.content}>
+        <Text style={styles.text}>Cities</Text>
+        <Text style={styles.text}>profile</Text>
+      </View>
+      <Search
+        style={styles.input}
+        multiline
+        numberOfLines={4}
+        onChangeText={text => setSearch(text)}
+        value={search}
+      />
       {response !== undefined ? (
         <FlatList
           data={response.data}
@@ -29,9 +48,15 @@ export default function All() {
           keyExtractor={item => item.name}
         />
       ) : (
-        <ActivityIndicator />
+        <Spinner
+          style={styles.spinner}
+          isVisible={true}
+          size={100}
+          type={'Wave'}
+          color={'#000'}
+        />
       )}
-    </View>
+    </SafeAreaView>
   );
 
   function Item({item}) {

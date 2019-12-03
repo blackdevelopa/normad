@@ -1,9 +1,10 @@
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 
-import {AuthStack} from './navigation/rootNavigator';
+import {AuthStack, AppTabs} from './navigation/rootNavigator';
 
 export default createAppContainer(
   createSwitchNavigator({
     AuthStack,
+    AppTabs,
   }),
 );

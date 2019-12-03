@@ -11,9 +11,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   topContainer: {
-    position: 'absolute',
-    top: '12%',
     marginHorizontal: '8%',
+    // backgroundColor: 'red',
   },
   logo: {
     backgroundColor: colors.button,
@@ -25,7 +24,7 @@ export default StyleSheet.create({
     ...text,
     fontSize: 22,
     fontWeight: '700',
-    paddingVertical: '2%',
+    paddingVertical: '1%',
     marginVertical: '5%',
   },
   description: {
@@ -35,7 +34,8 @@ export default StyleSheet.create({
   },
   midContainer: {
     height: '55%',
-    top: '9%',
+    marginVertical: '5%',
+    // top: '9%',
     marginHorizontal: '8%',
   },
   image: {
@@ -45,7 +45,7 @@ export default StyleSheet.create({
   },
   downContainer: {
     position: 'absolute',
-    bottom: '5%',
+    bottom: '0%',
     width: '100%',
   },
 });

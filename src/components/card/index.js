@@ -12,10 +12,19 @@ export default function Card(props) {
         />
       </View>
       <View style={styles.content}>
-        <Text>{props.country}</Text>
-        <Text>{props.capital}</Text>
-        <Text>{props.region}</Text>
-        <Text>{props.population}</Text>
+        <Text style={styles.text}>
+          <Text style={styles.title}>Country:</Text> {props.country}
+        </Text>
+        <Text style={styles.text}>
+          <Text style={styles.title}>Capital:</Text> {props.capital}
+        </Text>
+        <Text style={styles.text}>
+          <Text style={styles.title}>Continent:</Text> {props.region}
+        </Text>
+        <Text style={styles.text}>
+          <Text style={styles.title}>Population:</Text>{' '}
+          {props.population.toLocaleString()}
+        </Text>
       </View>
     </View>
   );

@@ -1,6 +1,11 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Iicon from 'react-native-vector-icons/Ionicons';
+import Micon from 'react-native-vector-icons/MaterialIcons';
 
 export function Ionicons(props) {
-  return <Icon name={props.name} color={props.color} size={props.size} />;
+  return <Iicon name={props.name} color={props.color} size={props.size} />;
+}
+
+export function MaterialIcons(props) {
+  return <Micon name={props.name} color={props.color} size={props.size} />;
 }
